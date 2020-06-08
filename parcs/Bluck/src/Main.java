@@ -3,14 +3,19 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    private static boolean isPrime(int x) {
-        if (x == 1) return false;
-        if (x == 2) return true;
-        if (x % 2 == 0) return false;
-        for (int i = 3; i * i <= x; i += 2) {
-            if (x % i == 0) return false;
+    private boolean Fantastic(int x) {
+        long xNew = x;
+        long Sum = 0;
+        long Mul = 1;
+        
+        while (xNew > 0) {
+            long y = xNew % 10;
+            Sum = Sum + y;
+            Mul = Mul * y;
+            xNew = xNew / 10;
         }
-        return true;
+        if (Sum == Mul) return true;
+        return false;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -26,7 +31,7 @@ public class Main {
         long sum = 0L;
         long time = System.currentTimeMillis();
         for (int i = n.getL(); i <= n.getR(); i++) {
-            if (isPrime(i)) sum+=i;
+            if (Fantastic(i)) sum+=i;
         }
         System.out.println("[" + sum + "] Build finished. Execution time: " + (System.currentTimeMillis() - time)/1000.0 + "s");
     }
