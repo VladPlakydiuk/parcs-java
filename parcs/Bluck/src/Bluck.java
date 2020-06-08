@@ -5,7 +5,7 @@ import java.io.File;
 import parcs.*;
 
 public class Bluck {
-    private final static int NODES = 4;
+    private final static int NODES = 2;
 
     public static void main(String[] args) throws Exception {
         task curtask = new task();
