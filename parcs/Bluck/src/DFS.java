@@ -4,14 +4,18 @@ public class DFS implements AM {
     private static final int NODES = 2;
 
     private boolean Fantastic(int x) {
-        int 
-        if (x == 1) return false;
-        if (x == 2) return true;
-        if (x % 2 == 0) return false;
-        for (int i = 3; i * i <= x; i += 2) {
-            if (x % i == 0) return false;
+        long xNew = x;
+        long Sum = 0;
+        long Mul = 1;
+        
+        while (xNew > 0) {
+            long y = xNew % 10;
+            Sum = Sum + y;
+            Mul = Mul * y;
+            xNew = xNew / 10;
         }
-        return true;
+        if (Sum == Mul) return true;
+        return false;
     }
 
     public void run(AMInfo info) {
@@ -22,7 +26,7 @@ public class DFS implements AM {
         int start = n.getL();
         while (start % (2 * NODES) != n.getDiv()) start++;
         for (int i = start; i <= n.getR(); i += 2 * NODES) {
-            if (isPrime(i)) sum += i;
+            if (Fantastic(i)) sum += i;
         }
         System.out.println("[" + n.getL() + " " + n.getR() + "] Build finished.");
         info.parent.write(sum);
