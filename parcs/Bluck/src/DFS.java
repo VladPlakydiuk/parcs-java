@@ -1,7 +1,7 @@
 import parcs.*;
 
 public class DFS implements AM {
-    private static final int NODES = 4;
+    private static final int NODES = 2;
 
     private boolean isPrime(int x) {
         if (x == 1) return false;
