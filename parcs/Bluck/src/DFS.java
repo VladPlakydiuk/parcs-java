@@ -3,7 +3,8 @@ import parcs.*;
 public class DFS implements AM {
     private static final int NODES = 2;
 
-    private boolean isPrime(int x) {
+    private boolean Fantastic(int x) {
+        int 
         if (x == 1) return false;
         if (x == 2) return true;
         if (x % 2 == 0) return false;
